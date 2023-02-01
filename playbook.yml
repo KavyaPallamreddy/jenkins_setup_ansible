@@ -1,0 +1,8 @@
+---
+- name: Playbook to jenkins tomcat
+  hosts: appservers
+  become: true
+  gather_facts: yes
+  
+  roles:
+    - jenkins_setup

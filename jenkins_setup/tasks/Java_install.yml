@@ -1,0 +1,27 @@
+---
+# tasks file for tomcat_setup_check
+- name: check if java exists or not
+  stat:
+    path: /usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
+  register: java_installed
+
+- name: "java is installed "
+  debug:
+     msg: "java is exists"
+  when: java_installed.stat.exists == True
+
+- name: "java is not installed"
+  debug:
+    msg: "java doesn't exists"
+  when: java_installed.stat.exists == False
+
+- name: install java-openjdk11 and adding environment variables to Bash Profile
+  shell:
+      sudo amazon-linux-extras install java-openjdk11
+      echo  'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64' >> ~/.bash_profile
+      echo 'export JAVA_HOME' >> ~/.bash_profile
+      echo 'PATH=$JAVA_HOME' >> ~/.bash_profile
+      source ~/.bash_profile
+
+
+
