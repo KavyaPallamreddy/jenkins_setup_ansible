@@ -15,7 +15,7 @@
     msg: "java doesn't exists"
   when: java_installed.stat.exists == False
 
-- name: install java-openjdk11 and adding environment variables to Bash Profile
+- name: install java-openjdk11 
   shell:
       sudo amazon-linux-extras install java-openjdk11
       
