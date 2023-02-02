@@ -1,6 +1,6 @@
 ---
 - name: Playbook to jenkins tomcat
-  hosts: appservers
+  hosts: all
   become: true
   gather_facts: yes
   
