@@ -38,12 +38,5 @@
     recurse: yes
   when: apache_maven_installed.stat.exists == False
   
-- name: Adding Environment variables to Bash Profile
-  shell:
-     echo 'M2_HOME=/opt/apache-maven-3.8.7' >> ~/.bash_profile
-     echo 'M2=/opt/apache-maven-3.8.7/bin' >> ~/.bash_profile
-     echo 'export M2_HOME' >> ~/.bash_profile
-     echo  'export M2' >> ~/.bash_profile
-     echo 'PATH=$M2_HOME:$M2' >> ~/.bash_profile
-     source ~/.bash_profile
+
   
