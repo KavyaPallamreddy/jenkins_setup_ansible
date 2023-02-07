@@ -1,7 +1,7 @@
 ---
 # vars file for tomcat_setup
 maven_url: "https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz"
-maven_package: apache-maven-3.8.7-bin
+maven_package: apache-maven-3.8.7
 jenkins_Repo: "https://pkg.jenkins.io/redhat-stable/jenkins.repo"
 jenkins_key: "https://pkg.jenkins.io/redhat-stable/jenkins.io.key"
 
