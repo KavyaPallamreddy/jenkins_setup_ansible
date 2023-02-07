@@ -29,10 +29,12 @@
     state: present
     regexp: "^(PATH)"
     line: 'PATH=$JAVA_HOME:$M2_HOME:$M2'
-- name: 
+    
+- name: Executing Bash_profile
   shell:
       source ~/.bash_profile
-- name:
+      
+- name: Adding Jenkins user to sudoers file
   lineinfile:
     path: /etc/sudoers
     state: present
