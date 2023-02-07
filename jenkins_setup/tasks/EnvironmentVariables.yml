@@ -5,31 +5,34 @@
 
 - name: Set JAVA_HOME
   lineinfile:
-    path: /root/.bash_profile
+    dest: /root/.bash_profile
+    line: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
     state: present
-    regexp: "^(JAVA_HOME)"
-    line: 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64'
+    create: yes
+    
     
 - name: Set MAVEN_HOME
   lineinfile:
-    path: /root/.bash_profile
-    state: present
-    regexp: "^(M2_HOME)"
+    dest: /root/.bash_profile
     line: 'M2_HOME=/opt/apache-maven-3.8.7'
+    state: present
+    create: yes
+    
+    
     
 - name: Set MAVEN_HOME_BIN
   lineinfile:
-    path: /root/.bash_profile
+    dest: /root/.bash_profile
+    line: M2_HOME=/opt/apache-maven-3.8.7/bin
     state: present
-    regexp: "^(M2)"
-    line: 'M2=/opt/apache-maven-3.8.7/bin'
+    create: yes
     
 - name: Set PATH
   lineinfile:
-    path: /root/.bash_profile
+    dest: /root/.bash_profile
+    line: PATH=$JAVA_HOME:$M2_HOME:$M2
     state: present
-    regexp: "^(PATH)"
-    line: 'PATH=$JAVA_HOME:$M2_HOME:$M2'
+    create: yes
     
 - name: Executing Bash_profile
   shell:
@@ -38,9 +41,9 @@
 - name: Adding Jenkins user to sudoers file
   lineinfile:
     path: /etc/sudoers
-    state: present
-    regexp: "^(jenkins)"
     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+    state: present
+    create: yes
 
     
     
