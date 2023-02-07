@@ -1,33 +1,43 @@
+- name: 
+  shell:
+      cd ~
+
 - name: Set JAVA_HOME
   lineinfile:
     dest: ~/.bash_profile
     state: present
-    regexp: '^JAVA_HOME'
+    regexp: "^(JAVA_HOME)"
     line: 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64'
     
 - name: Set MAVEN_HOME
   lineinfile:
     dest: ~/.bash_profile
     state: present
-    regexp: '^M2_HOME'
+    regexp: "^(M2_HOME)"
     line: 'M2_HOME=/opt/apache-maven-3.8.7'
     
 - name: Set MAVEN_HOME_BIN
   lineinfile:
     dest: ~/.bash_profile
     state: present
-    regexp: '^M2'
+    regexp: "^(M2)"
     line: 'M2=/opt/apache-maven-3.8.7/bin'
     
 - name: Set PATH
   lineinfile:
     dest: ~/.bash_profile
     state: present
-    regexp: '^PATH'
+    regexp: "^(PATH)"
     line: 'PATH=$JAVA_HOME:$M2_HOME:$M2'
 - name: 
   shell:
       source ~/.bash_profile
+- name:
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: "^(jenkins)"
+    line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
 
     
     
