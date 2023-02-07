@@ -27,7 +27,7 @@
 
 - name: extract packages
   unarchive:
-    src: /opt/{{ maven_package }}.tar.gz
+    src: /opt/{{ maven_package }}-bin.tar.gz
     dest: /opt
     remote_src: yes
   when: apache_maven_installed.stat.exists == False
