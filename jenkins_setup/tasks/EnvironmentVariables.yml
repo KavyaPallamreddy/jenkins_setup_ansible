@@ -1,4 +1,4 @@
-- name: 
+- name: setting root path
   shell:
       pwd
       cd ~
