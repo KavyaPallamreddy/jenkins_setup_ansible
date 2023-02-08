@@ -29,6 +29,8 @@
 - name: 
   shell:
       sudo usermod -a -G docker jenkins
+      sudo chmod 777 /var/run/docker.sock
+      
 - name: Get init password Jenkins
   shell: cat /var/lib/jenkins/secrets/initialAdminPassword
   changed_when: false
