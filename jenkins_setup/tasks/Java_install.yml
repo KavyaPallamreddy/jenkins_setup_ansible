@@ -3,7 +3,7 @@
 
 - name: check if java exists or not
   stat:
-    path: /usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
+    path: /usr/lib/jvm/java-11-openjdk-11.0.
   register: java_installed
 
 - name: "java is installed "
