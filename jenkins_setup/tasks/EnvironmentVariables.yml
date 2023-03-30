@@ -7,8 +7,3 @@
     create: yes
     
     
-- name: Run .bash_profile
-  shell:
-      cp /tmp/Jenkins_ansibe_role/jenkins_setup/.bash_profile /root
-      source ~/.bash_profile
-    
