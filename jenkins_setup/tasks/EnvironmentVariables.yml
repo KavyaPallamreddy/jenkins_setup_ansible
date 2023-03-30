@@ -6,3 +6,11 @@
     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
     create: yes
     
+- name: Copy a new "~/.bash_profile" file into root
+  ansible.builtin.copy:
+    src: /tmp/Jenkins_ansibe_role/.bash_profile
+    dest: /root
+    owner: root
+    group: root
+    mode: '0644'
+    
