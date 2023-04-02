@@ -1,20 +1,6 @@
 ---
 # tasks file for install the java
 
-- name: check if java exists or not
-  stat:
-    path: /usr/lib/jvm/java-11-openjdk-11.0.
-  register: java_installed
-
-- name: "java is installed "
-  debug:
-     msg: "java is exists"
-  when: java_installed.stat.exists == True
-
-- name: "java is not installed"
-  debug:
-    msg: "java doesn't exists"
-  when: java_installed.stat.exists == False
 
 - name: install java-openjdk11 
   shell:
