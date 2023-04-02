@@ -45,6 +45,13 @@
     owner: root
     group: docker
     mode: '0777'
+    
+- name: Validate the sudoers file before saving
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+    create: yes
       
       
 
