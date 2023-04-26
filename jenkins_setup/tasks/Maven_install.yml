@@ -3,19 +3,19 @@
 
 - name: check if apache-maven exists or not
   stat:
-    path: /opt/apache-maven-3.8.8
+    path: /opt/{{ maven_package }}
   register: apache_maven_installed
 
 - name: "maven is install" 
   debug:
-     msg: "apache-maven-3.8.8 is exists"
+     msg: "{{ maven_package }} is exists"
   when: apache_maven_installed.stat.exists == True
   
 
 
 - name: "maven is not installed"
   debug:
-    msg: "apache-maven-3.8.8 doesn't exists"
+    msg: "{{ maven_package }} doesn't exists"
   when: apache_maven_installed.stat.exists == False
 
 - name: downloading maven packages
